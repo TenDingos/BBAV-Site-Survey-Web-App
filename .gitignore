@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Environment variables (contains credentials)
+.env
+
+# Submission data (generated at runtime)
+submissions/
+
+# Temporary upload staging directory
+temp_uploads/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Optional: ngrok binary (if used for tunneling)
+ngrok
+ngrok.exe

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Box - AV Installation Site Survey Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- ================================================================
+         Header
+         ================================================================ -->
+    <div class="header">
+      <img src="assets/BB_HeaderLogo.png" alt="Black Box" class="header-logo">
+      <div class="header-content">
+        <h1>AV Installation Site Survey Form</h1>
+        <p>Conference Room Systems - AVIXA Standards Compliance</p>
+      </div>
+    </div>
+
+    <div class="form-container">
+
+      <!-- Saved room summaries render here -->
+      <div class="rooms-container" id="roomsContainer"></div>
+
+      <div class="current-room-indicator" id="roomIndicator">
+        Room 1 - New Room Survey
+      </div>
+
+      <form id="avSurveyForm">
+
+        <!-- ==============================================================
+             Section 1 - Site Information
+             ============================================================== -->
+        <div class="section">
+          <h2><span class="section-icon">1</span>Site Information</h2>
+
+          <div class="form-group">
+            <label for="siteAddress">Site Address <span class="required">*</span></label>
+            <input type="text" id="siteAddress" name="siteAddress" placeholder="Site Address" required>
+          </div>
+
+          <div class="form-group">
+            <label>Access Considerations <span class="required">*</span></label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="accessParking" name="accessConsiderations" value="Parking Availability">
+                <label for="accessParking">Parking Availability</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="accessBadging" name="accessConsiderations" value="Badging Requirement">
+                <label for="accessBadging">Badging Requirement</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="accessEscort" name="accessConsiderations" value="Escort Required">
+                <label for="accessEscort">Escort Required</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="otherAccessDetails">Other Access Details</label>
+            <textarea id="otherAccessDetails" name="otherAccessDetails" placeholder="None"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>PPE Requirements <span class="required">*</span></label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="ppeGlasses" name="ppeRequirements" value="Safety Glasses">
+                <label for="ppeGlasses">Safety Glasses</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="ppeHardHat" name="ppeRequirements" value="Hard Hat">
+                <label for="ppeHardHat">Hard Hat</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="ppeSteelToe" name="ppeRequirements" value="Steel Toe Boots">
+                <label for="ppeSteelToe">Steel Toe Boots</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="ppeNone" name="ppeRequirements" value="None">
+                <label for="ppeNone">None</label>
+              </div>
+            </div>
+          </div>
+
+          <h3>Special Considerations</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="backgroundCheck">Background Check Requirements <span class="required">*</span></label>
+              <input type="text" id="backgroundCheck" name="backgroundCheck" placeholder="None" required>
+            </div>
+            <div class="form-group">
+              <label for="safetyTraining">Safety Training Requirements <span class="required">*</span></label>
+              <input type="text" id="safetyTraining" name="safetyTraining" placeholder="None" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="unionLabor">Union Labor or Prevailing Wage Requirements <span class="required">*</span></label>
+            <input type="text" id="unionLabor" name="unionLabor" placeholder="None" required>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             Section 2 - Project Information
+             ============================================================== -->
+        <div class="section">
+          <h2><span class="section-icon">2</span>Project Information</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="projectName">Project Name <span class="required">*</span></label>
+              <input type="text" id="projectName" name="projectName" required>
+            </div>
+            <div class="form-group">
+              <label for="surveyDate">Survey Date <span class="required">*</span></label>
+              <input type="date" id="surveyDate" name="surveyDate" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="surveyorName">Surveyor Name <span class="required">*</span></label>
+              <input type="text" id="surveyorName" name="surveyorName" required>
+            </div>
+            <div class="form-group">
+              <label for="clientName">Client Name <span class="required">*</span></label>
+              <input type="text" id="clientName" name="clientName" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="clientContactName">Client Contact Name <span class="required">*</span></label>
+              <input type="text" id="clientContactName" name="clientContactName" required>
+            </div>
+            <div class="form-group">
+              <label for="clientContactTitle">Client Contact Title</label>
+              <input type="text" id="clientContactTitle" name="clientContactTitle" placeholder="e.g., IT Manager, Facilities Director">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="clientContactPhone">Client Contact Phone</label>
+              <input type="tel" id="clientContactPhone" name="clientContactPhone" placeholder="(555) 555-5555">
+            </div>
+            <div class="form-group">
+              <label for="clientContactEmail">Client Contact Email</label>
+              <input type="email" id="clientContactEmail" name="clientContactEmail" placeholder="contact@company.com">
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             Section 3 - Room Information
+             ============================================================== -->
+        <div class="section">
+          <h2><span class="section-icon">3</span>Room Information</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="roomName">Room Name/Number <span class="required">*</span></label>
+              <input type="text" id="roomName" name="roomName" required>
+            </div>
+            <div class="form-group">
+              <label for="buildingFloor">Building/Floor</label>
+              <input type="text" id="buildingFloor" name="buildingFloor">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Room Size Classification <span class="required">*</span></label>
+            <div class="room-size-selector">
+              <div class="room-size-card" data-value="huddle">
+                <h3>Huddle Room</h3>
+                <p>2-4 People</p>
+                <p>Up to 150 sq ft</p>
+                <p>Informal collaboration</p>
+              </div>
+              <div class="room-size-card" data-value="small">
+                <h3>Small Conference</h3>
+                <p>4-6 People</p>
+                <p>150-300 sq ft</p>
+                <p>Team meetings</p>
+              </div>
+              <div class="room-size-card" data-value="medium">
+                <h3>Medium Conference</h3>
+                <p>6-12 People</p>
+                <p>300-500 sq ft</p>
+                <p>Department meetings</p>
+              </div>
+              <div class="room-size-card" data-value="large">
+                <h3>Large Conference</h3>
+                <p>12-20 People</p>
+                <p>500+ sq ft</p>
+                <p>Board/executive meetings</p>
+              </div>
+            </div>
+            <input type="hidden" id="roomSize" name="roomSize" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="roomLength">Room Length (ft)</label>
+              <input type="number" id="roomLength" name="roomLength" step="0.5">
+            </div>
+            <div class="form-group">
+              <label for="roomWidth">Room Width (ft)</label>
+              <input type="number" id="roomWidth" name="roomWidth" step="0.5">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ceilingHeight">Ceiling Height (ft)</label>
+              <input type="number" id="ceilingHeight" name="ceilingHeight" step="0.5">
+            </div>
+            <div class="form-group">
+              <label for="occupancy">Maximum Occupancy</label>
+              <input type="number" id="occupancy" name="occupancy">
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             Section 4 - Conferencing Platform & Style
+             ============================================================== -->
+        <div class="section">
+          <h2><span class="section-icon">4</span>Conferencing Platform &amp; Style</h2>
+
+          <div class="form-group">
+            <label>Primary Platform Type <span class="required">*</span></label>
+            <div class="platform-selector">
+              <div class="platform-card" data-value="mtr">
+                <h3>Microsoft Teams Room (MTR)</h3>
+                <p>Dedicated Teams appliance with certified hardware. Native Teams integration, one-touch join, and optimized meeting experience.</p>
+              </div>
+              <div class="platform-card" data-value="zoom">
+                <h3>Zoom Room</h3>
+                <p>Dedicated Zoom appliance with certified hardware. Native Zoom integration, calendar scheduling, and wireless content sharing.</p>
+              </div>
+              <div class="platform-card" data-value="byod">
+                <h3>BYOD Conferencing</h3>
+                <p>Bring Your Own Device setup with USB/wireless connectivity. Platform agnostic supporting Teams, Zoom, WebEx, and other platforms.</p>
+              </div>
+              <div class="platform-card" data-value="presentation">
+                <h3>Presentation Only</h3>
+                <p>Local presentation and display system without video conferencing capabilities. Supports wired and wireless content sharing.</p>
+              </div>
+            </div>
+            <input type="hidden" id="conferencingPlatform" name="conferencingPlatform" required>
+          </div>
+
+          <div class="form-group">
+            <label>Additional Platform Support</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="supportTeams" name="additionalPlatforms" value="teams">
+                <label for="supportTeams">Microsoft Teams</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="supportZoom" name="additionalPlatforms" value="zoom">
+                <label for="supportZoom">Zoom</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="supportWebex" name="additionalPlatforms" value="webex">
+                <label for="supportWebex">Cisco WebEx</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="supportGoogleMeet" name="additionalPlatforms" value="googlemeet">
+                <label for="supportGoogleMeet">Google Meet</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="supportBYOD" name="additionalPlatforms" value="byod">
+                <label for="supportBYOD">BYOD</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             Section 5 - Audio/Video Requirements
+             ============================================================== -->
+        <div class="section">
+          <h2><span class="section-icon">5</span>Audio/Video Requirements</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="displayType">Primary Display Type</label>
+              <select id="displayType" name="displayType">
+                <option value="">Select Display Type</option>
+                <option value="flat-panel">Flat Panel Display</option>
+                <option value="projector">Projector</option>
+                <option value="led-wall">LED Video Wall</option>
+                <option value="dual-display">Dual Display Setup</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="displaySize">Display Size/Resolution</label>
+              <input type="text" id="displaySize" name="displaySize" placeholder='e.g., 75" 4K, 65" 1080p'>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Audio System Requirements</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="ceilingMics" name="audioRequirements" value="ceiling-mics">
+                <label for="ceilingMics">Ceiling Microphones</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="tabletopMics" name="audioRequirements" value="tabletop-mics">
+                <label for="tabletopMics">Tabletop Microphones</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="ceilingSpeakers" name="audioRequirements" value="ceiling-speakers">
+                <label for="ceilingSpeakers">Ceiling Speakers</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="soundbar" name="audioRequirements" value="soundbar">
+                <label for="soundbar">Soundbar/Integrated Audio</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Camera Requirements</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="fixedCamera" name="cameraRequirements" value="fixed-camera">
+                <label for="fixedCamera">Fixed Position Camera</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="ptzCamera" name="cameraRequirements" value="ptz-camera">
+                <label for="ptzCamera">PTZ Camera</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="autoTracking" name="cameraRequirements" value="auto-tracking">
+                <label for="autoTracking">Auto-Tracking Camera</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="multiCamera" name="cameraRequirements" value="multi-camera">
+                <label for="multiCamera">Multi-Camera Setup</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Owner Furnished Equipment (OFE) -->
+          <div class="form-group">
+            <label>Owner Furnished Equipment (OFE) Status</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="ofeInstalled" name="ofeStatus" value="ofe-installed">
+                <label for="ofeInstalled">Existing Equipment Installed</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Will OFE be Reused?</label>
+              <select id="ofeReuse" name="ofeReuse">
+                <option value="">Select Option</option>
+                <option value="yes">Yes - Reuse Existing Equipment</option>
+                <option value="no">No - Replace with New Equipment</option>
+                <option value="partial">Partial - Some Equipment Reused</option>
+                <option value="na">N/A - No Existing Equipment</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ofeDetails">OFE Make/Model/Quantities</label>
+            <textarea id="ofeDetails" name="ofeDetails" rows="4"
+              placeholder="List existing equipment to be reused or replaced. Include make, model, and quantity for each item.&#10;&#10;Example:&#10;- Display: Samsung QM75R 75&quot; Display (Qty: 1) - Reuse&#10;- Camera: Logitech Rally (Qty: 1) - Replace&#10;- Microphones: Shure MXA910 Ceiling Array (Qty: 2) - Reuse"></textarea>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             Section 6 - Infrastructure & Environment
+             ============================================================== -->
+        <div class="section">
+          <h2><span class="section-icon">6</span>Infrastructure &amp; Environment</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="powerAvailability">Power Availability</label>
+              <select id="powerAvailability" name="powerAvailability">
+                <option value="">Select Power Status</option>
+                <option value="adequate">Adequate - No modifications needed</option>
+                <option value="additional-required">Additional outlets required</option>
+                <option value="electrical-upgrade">Electrical upgrade needed</option>
+                <option value="conduit-required">New conduit/wiring required</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="networkAvailability">Network Infrastructure</label>
+              <select id="networkAvailability" name="networkAvailability">
+                <option value="">Select Network Status</option>
+                <option value="adequate">Adequate - Existing drops sufficient</option>
+                <option value="additional-drops">Additional network drops needed</option>
+                <option value="upgrade-required">Network upgrade required</option>
+                <option value="new-infrastructure">New network infrastructure needed</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Environmental Considerations</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="naturalLight" name="environmental" value="natural-light">
+                <label for="naturalLight">Significant Natural Light</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="hvacNoise" name="environmental" value="hvac-noise">
+                <label for="hvacNoise">HVAC Noise Concerns</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="acousticTreatment" name="environmental" value="acoustic-treatment">
+                <label for="acousticTreatment">Acoustic Treatment Required</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="windowShades" name="environmental" value="window-shades">
+                <label for="windowShades">Automated Window Shades</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             Section 7 - Additional Requirements & Notes
+             ============================================================== -->
+        <div class="section">
+          <h2><span class="section-icon">7</span>Additional Requirements &amp; Notes</h2>
+
+          <div class="form-group">
+            <label for="specialRequirements">Special Requirements</label>
+            <textarea id="specialRequirements" name="specialRequirements"
+              placeholder="Document any special requirements, existing equipment to be reused, architectural constraints, or unique client needs..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="technicalNotes">Technical Notes</label>
+            <textarea id="technicalNotes" name="technicalNotes"
+              placeholder="Include technical observations, infrastructure limitations, recommended solutions, or installation considerations..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="roomPhotos">Room Photos &amp; Videos</label>
+            <p style="color: #58595B; font-size: 0.9em; margin-bottom: 10px;">
+              Upload photos and videos of the room, existing equipment, cable pathways, ceiling conditions, and other relevant site details. Accepted formats: JPG, PNG, MP4, MOV. Max 100 MB per file.
+            </p>
+            <input type="file" id="roomPhotos" name="roomPhotos" multiple accept="image/*,video/*"
+              style="padding: 10px; border: 2px dashed #808285; background: #f8f9fa;">
+            <div id="filePreview"
+              style="margin-top: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             Form Actions
+             ============================================================== -->
+        <div class="form-actions">
+          <button type="button" class="btn-secondary" onclick="saveAsDraft()">Save as Draft</button>
+          <button type="button" class="btn-secondary" onclick="addAnotherRoom()">Add Another Room</button>
+          <button type="submit" class="btn-primary">Generate Survey Report</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       Footer
+       ==================================================================== -->
+  <div class="footer">
+    <div class="footer-content">
+      <h3>Legal Notice &amp; Disclaimer</h3>
+      <p>
+        This application and all information submitted through it, including but not limited to site survey data,
+        technical specifications, project details, and any associated documentation, are the exclusive property of
+        Black Box Network Services.
+      </p>
+      <p>
+        By submitting information through this application, you acknowledge and agree that: (1) all data entered
+        becomes the proprietary information of Black Box Network Services; (2) Black Box Network Services may use,
+        store, process, and analyze this information for business purposes including project management, service
+        delivery, and operational improvements; (3) you have the authority to provide this information and that it
+        does not violate any third-party rights or confidentiality obligations; and (4) the information provided is
+        accurate to the best of your knowledge.
+      </p>
+      <p>
+        This application is provided "as is" without any warranties, express or implied. Black Box Network Services
+        shall not be liable for any damages arising from the use of or inability to use this application, including
+        but not limited to data loss, service interruptions, or inaccuracies in submitted information. Users are
+        responsible for maintaining backup copies of all submitted data.
+      </p>
+      <p>
+        All intellectual property rights, including copyrights, trademarks, and patents related to this application
+        and its underlying technology, remain the sole property of Black Box Network Services. Unauthorized
+        reproduction, distribution, or modification of this application is strictly prohibited.
+      </p>
+      <div class="copyright">
+        &copy; <span id="currentYear"></span> Black Box Network Services. All Rights Reserved. | Confidential and Proprietary Information
+      </div>
+    </div>
+  </div>
+
+  <script src="js/survey.js"></script>
+</body>
+</html>
